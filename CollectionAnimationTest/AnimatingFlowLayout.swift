@@ -46,7 +46,9 @@ class AnimatingFlowLayout: UICollectionViewFlowLayout {
     
     override func finalLayoutAttributesForDisappearingItemAtIndexPath(itemIndexPath: NSIndexPath) -> UICollectionViewLayoutAttributes? {
         let attributes: CellLayoutAttributes = super.finalLayoutAttributesForDisappearingItemAtIndexPath(itemIndexPath) as! CellLayoutAttributes
-        attributes.alpha = 0.0
+
+        // Default is 0, if I set it to 1.0 you don't see anything happen..'
+        attributes.alpha = 0.5
         
         let endX = -CGRectGetWidth(self.collectionView!.frame)
         let startTransform: CATransform3D = CATransform3DIdentity
@@ -56,7 +58,7 @@ class AnimatingFlowLayout: UICollectionViewFlowLayout {
         transformAnimation.fromValue = NSValue(CATransform3D:startTransform)
         transformAnimation.toValue = NSValue(CATransform3D:endTransform)
         transformAnimation.duration = 0.4
-        transformAnimation.beginTime = CACurrentMediaTime() + Double((0.05 * Float(itemIndexPath.row)))
+        transformAnimation.beginTime = CACurrentMediaTime() + Double((0.04 * Float(itemIndexPath.row)))
         transformAnimation.fillMode = kCAFillModeForwards
         
         attributes.animation = transformAnimation
