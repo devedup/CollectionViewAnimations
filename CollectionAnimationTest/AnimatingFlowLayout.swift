@@ -26,7 +26,6 @@ class AnimatingFlowLayout: UICollectionViewFlowLayout {
         let transformAnimation = CABasicAnimation(keyPath: "transform")
         transformAnimation.fromValue = NSValue(CATransform3D:startTransform)
         transformAnimation.toValue = NSValue(CATransform3D:endTransform)
-        
         transformAnimation.duration = 0.4
         
         // If you add a staggered begin time, you need to change the fill mode to Backwards
@@ -36,7 +35,7 @@ class AnimatingFlowLayout: UICollectionViewFlowLayout {
             If you delay the start of an animation, you might also want to set the fillMode property to kCAFillModeBackwards. This fill mode causes the layer to display the animation’s start value, even if the layer object in the layer tree contains a different value. Without this fill mode, you would see a jump to the final value before the animation starts executing. Other fill modes are available too.
 
         */
-        transformAnimation.beginTime = CACurrentMediaTime() + Double((0.05 * Float(itemIndexPath.row)))
+        transformAnimation.beginTime = CACurrentMediaTime() + Double((0.05 * Double(itemIndexPath.row)))
         transformAnimation.fillMode = kCAFillModeBackwards
         
         attributes.animation = transformAnimation
@@ -58,7 +57,7 @@ class AnimatingFlowLayout: UICollectionViewFlowLayout {
         transformAnimation.fromValue = NSValue(CATransform3D:startTransform)
         transformAnimation.toValue = NSValue(CATransform3D:endTransform)
         transformAnimation.duration = 0.4
-        transformAnimation.beginTime = CACurrentMediaTime() + Double((0.04 * Float(itemIndexPath.row)))
+        transformAnimation.beginTime = CACurrentMediaTime() + Double((0.04 * Double(itemIndexPath.row)))
         transformAnimation.fillMode = kCAFillModeForwards
         
         attributes.animation = transformAnimation
