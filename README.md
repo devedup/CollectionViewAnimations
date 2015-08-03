@@ -1,0 +1,2 @@
+# CollectionViewAnimations
+Sample project demonstrating UICollectionViewFlowLayout
